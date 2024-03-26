@@ -1,0 +1,178 @@
+/*import dei font*/
+@import url('https://fonts.cdnfonts.com/css/tex-gyre-adventor');
+@font-face {
+    font-family: 'BR Shape';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107508/BRShape-Regular-BF654c4e0770efa.woff') format('woff');
+}
+@font-face {
+    font-family: 'BR Shape 600';
+    font-style: normal;
+    font-weight: 600;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107508/BRShape-SemiBold-BF654c4e0768a21.woff') format('woff');
+}
+@font-face {
+    font-family: 'BR Shape 700';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), url('https://fonts.cdnfonts.com/s/107508/BRShape-Bold-BF654c4e0759801.woff') format('woff');
+}
+
+html {
+    font-family: 'TeXGyreAdventor', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: "header-pagina header-pagina"
+                         "sidemenu contenuto-principale"
+                         "sidemenu firma";
+    grid-template-rows: 1fr 7fr 2em;
+    grid-template-columns: 1fr 3fr;
+}
+
+header {
+    grid-area: header-pagina;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+main {
+    grid-area: contenuto-principale;
+    height: 100%;
+}
+
+.calendario {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.special {
+    color: #ff0000;
+}
+
+#sidemenu {
+    padding: 1%;
+    grid-area: sidemenu;
+
+    display: flex;
+    flex-flow: column nowrap;
+    border-right: solid 1px #bbbbbb;
+}
+
+#sidemenu > p {
+    flex-grow: 1;
+}
+
+footer {
+    grid-area: firma;
+    opacity: 0.66;
+}
+
+footer > p {
+    width: fit-content;
+    margin: auto;
+}
+
+hgroup {
+    font-family: 'BR Shape', sans-serif;
+    text-align: center;
+}
+
+.header-mese {
+    /*proprietà flex (self)*/
+    flex-grow: 0;
+    /*proprietà grid (container)*/
+
+    text-align: center;
+    font-size: 2em; /*massima grandezza dei contenuti*/
+    font-family: 'BR Shape 700', sans-serif;
+}
+
+.header-mese > time {
+    font-size: 1.75em; /*grandezza del contenuto*/}
+
+.header-giorni {
+    /*proprietà flex (self)*/
+    flex-grow: 1;
+    font-family: 'BR Shape 600', sans-serif;
+    background-color: #fdfdfc;
+    display: grid;
+    grid-template-areas: "hgiornivtop"
+                         "hgiornivcenter"
+                         "hgiornivbottom";
+    grid-template-rows: 1fr 1em 1fr;
+}
+.header-giorni-inner {
+    grid-area: hgiornivcenter;
+    display: grid;
+    grid-template-areas: "lun mar mer gio ven sab dom"; /*credo i nomi siano irrilevanti, il browser sistemerà i div come deve*/
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+.header-giorni > div {
+    height: fit-content;
+}
+
+.griglia-giorni {
+    /*proprietà flex (self)*/
+    flex-grow: 8;
+    /*proprietà grid (container)*/
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.griglia-giorni button {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border-collapse: collapse;
+    border: solid 1px transparent; /*Necessario per non generare bordi con l'hover che renderebbero i bottoni più grandi*/
+}
+
+.griglia-giorni button:focus {
+    background-color: #f7f7f7;
+    border-color: #e0e0e0;
+}
+
+.griglia-giorni button:hover {
+    background-color: #f0f0f0;
+}
+
+.griglia-giorni button:active {
+    background-color: #e0e0e0;
+    border-color: #d7d7d7;
+}
+
+.griglia-giorni button:first-child {
+    grid-column-start: 5;
+}
+
+.icon img {
+    display: inline;
+    margin : 0 0;
+    padding: 0;
+    vertical-align: middle;
+    height: 1.25em;
+}
+
+@media (max-height: 720px), (max-width: 870px) {
+    #sidemenu {
+        display: none;
+    }
+
+    .header-mese > time {
+        font-size: 2em;
+    }
+
+    body {
+        grid-template-areas: "header-pagina header-pagina"
+                             "contenuto-principale contenuto-principale"
+                             "firma firma";
+    }
+}
