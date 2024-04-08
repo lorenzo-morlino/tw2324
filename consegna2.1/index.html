@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>pomodoro timer</title>
+        <!-- <link href="./reset.css" rel="stylesheet" />
+        <link href="./style.css" rel="stylesheet" /> -->
+    </head>
+    <body>
+        <main>
+            <!-- <button onclick="switchView()"></button> -->
+            <time id="studytime" datetime="PT0H0M0S">00:00</time>
+            <time hidden id="pausetime" datetime="PT0H0M0S">00:00</time>
+            <div id="controlli">
+                <button onclick="addTime(30 * 60 * 1000)">+30m</button> <!--CONSIDER CHANGING TO ADDEVENTLISTENER FROM WITHIN THE SCRIPT!!!!!!!-->
+                <button onclick="addTime(15 * 60 * 1000)">+15m</button>
+                <button onclick="addTime(5 * 60 * 1000)">+5m</button>
+                <button onclick="startTimer()">start!</button>
+            </div>
+        </main>
+        <script src="./script.js" type="text/javascript"></script>
+        <script>
+        </script>
+    </body>
+</html>

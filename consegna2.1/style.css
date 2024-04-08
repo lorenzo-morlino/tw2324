@@ -1,0 +1,21 @@
+body {
+    display: grid;
+    grid-template-areas: "left center right";
+    grid-template-columns: repeat(3, 1fr);
+}
+
+main {
+    /*proprietà grid (self)*/
+    grid-area: center;
+}
+
+#display{
+    /*font-size: 10vmin*/
+}
+
+#controlli {
+    /*proprietà grid (container)*/
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
